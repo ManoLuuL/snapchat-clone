@@ -12,6 +12,7 @@ export const GET = async () => {
 
     const users: IUserDocument[] = await User.find();
     const filteredUsers = users.filter(
+      // @ts-ignore
       (user) => user._id.toString() !== session.user?._id.toString()
     );
     return NextResponse.json(filteredUsers);

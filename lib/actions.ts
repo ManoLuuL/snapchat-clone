@@ -88,6 +88,7 @@ export const deleteChatAction = async (userId: string) => {
     const { user } = (await auth()) || {};
     if (!user) return;
     const chat = await Chat.findOne({
+      // @ts-ignore
       participants: { $all: [user._id, userId] },
     });
     if (!chat) return;

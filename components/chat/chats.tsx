@@ -13,6 +13,7 @@ import { getUsersForSidebar } from "@/lib/data";
 
 const Chats = async () => {
   const session = await auth();
+  // @ts-ignore
   const chats = session?.user ? await getUsersForSidebar(session.user._id) : [];
 
   const Chat = (

@@ -20,6 +20,7 @@ const ChatMessages = ({ messages, session }: ChatMessagesProps) => {
   return (
     <>
       {messages.map((message, idx) => {
+        // @ts-ignore
         const amISender = message.sender._id === session?.user?._id;
         const senderFullName = message.sender.fullName.toUpperCase();
         const isMessageImage = message.messageType === "image";

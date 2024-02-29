@@ -7,7 +7,8 @@ import { getMessages } from "@/lib/data";
 const ChatHistoryPage = async ({ params }: { params: { id: string } }) => {
   const session = await auth();
   const messages = session
-    ? await getMessages(session?.user?._id, params.id)
+    ? // @ts-ignore
+      await getMessages(session?.user?._id, params.id)
     : [];
   return (
     <div className="bg-sigMain h-screen flex-[3_3_0%] flex flex-col px-4 text-white">
