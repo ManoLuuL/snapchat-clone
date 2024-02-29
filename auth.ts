@@ -18,6 +18,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         if (session.user) {
           const user = await User.findOne({ email: session.user.email });
           if (user) {
+            // @ts-ignore
             session.user._id = user._id;
             return session;
           } else {
