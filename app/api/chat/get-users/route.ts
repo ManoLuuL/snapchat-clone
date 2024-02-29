@@ -12,7 +12,7 @@ export const GET = async () => {
 
     const users: IUserDocument[] = await User.find();
     const filteredUsers = users.filter(
-      (user) => user._id.toString() !== session.user._id.toString()
+      (user) => user._id.toString() !== session.user?._id.toString()
     );
     return NextResponse.json(filteredUsers);
   } catch (error) {
