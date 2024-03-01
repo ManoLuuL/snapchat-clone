@@ -18,7 +18,7 @@ const ImagePreviewDialog = ({
 }: ImagePreviewDialogProps) => (
   <Dialog open={!!selectedFile}>
     <DialogContent
-      className=" bg-sigMain border border-sigColorBgBorder md:max-w-3xl max-w-xl h-[80vh] flex flex-col "
+      className="bg-sigMain border border-sigColorBgBorder md:max-w-3xl max-w-xl h-[80vh] flex flex-col"
       onInteractOutside={onClose}
     >
       <DialogHeader className="flex-1">

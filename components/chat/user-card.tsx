@@ -1,6 +1,7 @@
 import { Avatar, AvatarImage } from "../ui/avatar";
 
 import { UserCardProps } from "./types";
+import { twMerge } from "tailwind-merge";
 
 const UserCard = (props: UserCardProps) => {
   const { handleSelectUser, selectedUser, user } = props;
@@ -9,9 +10,10 @@ const UserCard = (props: UserCardProps) => {
   return (
     <div
       onClick={() => handleSelectUser(user)}
-      className={`flex items-center gap-2 border-b border-b-sigColorBgBorder p-1 hover:bg-sigBackgroundFeedHover cursor-pointer 
-				${isSelected ? "bg-sigBackgroundFeedHover" : ""}
-			`}
+      className={twMerge(
+        "flex items-center gap-2 border-b border-b-sigColorBgBorder p-1 hover:bg-sigBackgroundFeedHover cursor-pointer",
+        isSelected && "bg-sigBackgroundFeedHover"
+      )}
     >
       <Avatar className="cursor-pointer hover:bg-sigBackgroundSecondaryHover">
         <AvatarImage src={user.avatar} />
